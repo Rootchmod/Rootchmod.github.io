@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="RootChmod的技术博客">
+        <meta property="og:title" content="pwa项目编译">
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>tools - RootChmod的技术博客</title>
+    <title>pwa项目编译 - RootChmod的技术博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -131,9 +131,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -141,34 +139,70 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">tools</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2019/06/17/web/pwa项目编译/">
-        <span class="archive-date">
-            Jun 2019
-        </span>
-        pwa项目编译
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/06/17/web/pwa项目编译/">
+                pwa项目编译
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-06-17</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/tools/">tools</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <blockquote>
+<p>pwa项目一次编译 可以同时在android ios windowsPhone三个平台上安装 非常的方便  另外在用户体验上也是非常接近原生 今天给大家分享一下pwa编译打包的方法</p>
+</blockquote>
+<p> 首先项目要有个manifest.json 内容如下</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"****-盘点机"</span>,</span><br><span class="line">  <span class="attr">"short_name"</span>: <span class="string">"盘点机"</span>,</span><br><span class="line">  <span class="attr">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"./img/icons/android-chrome-192x192.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"192x192"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"./img/icons/android-chrome-512x512.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"512x512"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"start_url"</span>: <span class="string">"./index.html"</span>,</span><br><span class="line">  <span class="attr">"display"</span>: <span class="string">"fullscreen"</span>,</span><br><span class="line">  <span class="attr">"background_color"</span>: <span class="string">"#000000"</span>,</span><br><span class="line">  <span class="attr">"theme_color"</span>: <span class="string">"#4DBA87"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还需要有sw.js文件</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Welcome to your Workbox-powered service worker!</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * You'll need to register this file in your web app and you should</span></span><br><span class="line"><span class="comment"> * disable HTTP caching for this file too.</span></span><br><span class="line"><span class="comment"> * See https://goo.gl/nhQhGp</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * The rest of the code is auto-generated. Please don't update this file</span></span><br><span class="line"><span class="comment"> * directly; instead, make changes to your Workbox build configuration</span></span><br><span class="line"><span class="comment"> * and re-run your build process.</span></span><br><span class="line"><span class="comment"> * See https://goo.gl/2aRDsh</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">importScripts(<span class="string">"https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js"</span>);</span><br><span class="line"></span><br><span class="line">importScripts(</span><br><span class="line">  <span class="string">"precache-manifest.ff92c15fe4d04b70c3e619e5b42f735f.js"</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">workbox.core.setCacheNameDetails(&#123;prefix: <span class="string">"xtly"</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The workboxSW.precacheAndRoute() method efficiently caches and responds to</span></span><br><span class="line"><span class="comment"> * requests for URLs in the manifest.</span></span><br><span class="line"><span class="comment"> * See https://goo.gl/S9QRab</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">self.__precacheManifest = [].concat(self.__precacheManifest || []);</span><br><span class="line">workbox.precaching.suppressWarnings();</span><br><span class="line">workbox.precaching.precacheAndRoute(self.__precacheManifest, &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>以上的这两个配置文件都使用默认的配置就可以了</p>
+<p>然后部署到服务器 使用手机谷歌浏览器访问链接<br>不出问题的情况下 屏幕的下方会弹出提示 让你添加该站点到主屏幕 如果没有弹出来也没事<br>点击chrome浏览器右上角的 … 有个选项是 ‘添加到主屏幕’<br><img src="https://img.alicdn.com/imgextra/i2/3604278968/O1CN01nbd7Lj2G7OSHzwqNK_!!3604278968.png" alt="添加图片到主屏幕"><br>点击完成后会弹出字幕正在添加  这个过程可能需要1分钟  在这一分钟内你是看不到主屏幕上的图标的<br>等待完成后就可以在桌面看到一个体验度超好的pwa项目辣</p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pwa/">#pwa</a> <a href="/tags/android/">#android</a> <a href="/tags/web/">#web</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
 </div>
-            
-                <div class="archive-post">
-    <a href="/2019/06/17/tools/免费ip证书申请/">
-        <span class="archive-date">
-            Jun 2019
-        </span>
-        免费ssl证书申请
-    </a>
-</div>
-            
         </section>
+
     </div>
 </div>
+
 
 </div>
 
