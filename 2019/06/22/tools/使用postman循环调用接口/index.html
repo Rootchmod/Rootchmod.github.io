@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="RootChmod的技术博客">
+        <meta property="og:title" content="使用postman循环调用接口">
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>换脸 - RootChmod的技术博客</title>
+    <title>使用postman循环调用接口 - RootChmod的技术博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -131,9 +131,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -141,25 +139,108 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">#换脸</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2019/06/17/tools/ai换脸程序的使用/">
-        <span class="archive-date">
-            Jun 2019
-        </span>
-        ai换脸程序的使用
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/06/22/tools/使用postman循环调用接口/">
+                使用postman循环调用接口
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-06-22</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/tools/">tools</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="使用postman循环请求接口"><a href="#使用postman循环请求接口" class="headerlink" title="使用postman循环请求接口"></a>使用postman循环请求接口</h1><blockquote>
+<p>Q: 什么时候可以用的到此功能?</p>
+</blockquote>
+<blockquote>
+<p>S: 模拟添加数据,有时候在添加数据的时候,要添加你规定的数据,但是使用sql写数据会有一些无法避免的问题,比如:写sql添加数据不能添加日志等…<br>  此时就需要循环调用接口来实现数据的添加</p>
+</blockquote>
+<p>-</p>
+<blockquote>
+<p>Q: 可以实现什么样的功能?</p>
+</blockquote>
+<blockquote>
+<p>S: 可以读excel/json.来实现指定数据的添加,也可以生成随机数据,随机数据可以使用js实现</p>
+</blockquote>
+<p>比如我们现在实现这个接口的数据添加功能<br><img src="https://img.alicdn.com/imgextra/i4/3604278968/O1CN01ioXvv22G7OSMOkfdF_!!3604278968.png" alt="测试接口截图"></p>
+<p>首先点击上面的Run按钮<br><img src="https://img.alicdn.com/imgextra/i1/3604278968/O1CN0179SiZQ2G7OSPTUHsf_!!3604278968.png" alt="调用页面"></p>
+<p>下面的几个参数分别是:</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Environment: 环境(用于指定运行时的固定参数,比如登录信息),还有些其他功能(比如可以根据环境来进行分类调用)等等</span><br><span class="line">Iterations: 循环次数</span><br><span class="line">Dealy: 每轮循环的延时</span><br><span class="line">Log Responses: 返回日志选项(默认 For all requests:返回所有接口调用日志)</span><br><span class="line">Data: 需要循环的参数文件</span><br><span class="line">DataFileType: 选中资源类型</span><br><span class="line">Preview:查看</span><br></pre></td></tr></table></figure>
+
+<p>我们这里使用的测试数据<br><img src="https://img.alicdn.com/imgextra/i3/3604278968/O1CN01vnymQ72G7OSKgsnBA_!!3604278968.png" alt="测试数据展示"><br>在接口上传数据的时候,上传的字段名是根据json的键值来使用的,所以不需要在参数里面设置解析</p>
+<p>在这里选择需要运行的接口,因为并不是此文件夹下所有接口都要运行的,所以要进行勾选,只运行所需的接口<br><img src="https://img.alicdn.com/imgextra/i4/3604278968/O1CN01mDONrk2G7OSNuIISs_!!3604278968.png" alt="选择要运行的接口"><br>在选择完成后点左下的蓝色按钮 Run(接口名)<br><img src="https://img.alicdn.com/imgextra/i3/3604278968/O1CN01Fv7tKp2G7OSOacJXh_!!3604278968.png" alt="运行结果"><br>红色是运行异常的接口数量(非200) <br><br>绿色是运行正常的接口数量 <br><br>Run Summary 查看统计图 <br><br>Export Results 导出测试结果(json数据) <br></p>
+<h2 id="Postman进阶"><a href="#Postman进阶" class="headerlink" title="Postman进阶"></a>Postman进阶</h2><ul>
+<li>postman变量的使用<ul>
+<li><a href="#jinjie11">变量的查看</a></li>
+<li><a href="#jinjie12">变量的存储</a></li>
+<li><a href="#jinjie13">变量的使用</a></li>
+</ul>
+</li>
+<li>postman随机数的生成<ul>
+<li><a href="#jinjie21">使用postman默认的随机数</a></li>
+<li><a href="#jinjie22">使用js自己生成随机数</a></li>
+<li><a href="#jinjie23">随机布尔值(三元表达式)</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="进阶-—-变量的查看"><a href="#进阶-—-变量的查看" class="headerlink" title="进阶 — 变量的查看"></a><span id="jinjie11">进阶 — 变量的查看</span></h4><p><img src="https://img.alicdn.com/imgextra/i4/3604278968/O1CN01hLRyaN2G7OSNS4bp2_!!3604278968.png" alt="变量的查看"></p>
+<h4 id="进阶-—-变量的存储"><a href="#进阶-—-变量的存储" class="headerlink" title="进阶 — 变量的存储"></a><span id="jinjie12">进阶 — 变量的存储</span></h4><p>GNU可视化操作变量:<br><img src="https://img.alicdn.com/imgextra/i1/3604278968/O1CN013cazZ92G7OSKaHCTY_!!3604278968.png" alt="变量添加按钮"><br><img src="https://img.alicdn.com/imgextra/i3/3604278968/O1CN01pXP8Hu2G7OSLUbnsk_!!3604278968.png" alt="变量值的添加"><br>如图,取消前面的对勾则代表变量不启用,三个值分别为变量名称,默认值和当前值,添加完成后点击save保存</p>
+<p>使用postman提供的函数添加变量:<br><img src="https://img.alicdn.com/imgextra/i2/3604278968/O1CN011JC3vv2G7OSNagXzI_!!3604278968.png" alt="代码的方式添加变量"></p>
+<figure class="highlight plain"><figcaption><span>6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 全局变量</span><br><span class="line">pm.globals.set(&quot;变量名称&quot;, &quot;变量值&quot;);</span><br><span class="line">// 环境变量</span><br><span class="line">pm.environment.set(&quot;变量名称&quot;, &quot;变量值&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>postman每次在请求发送前都会运行一遍变量的设置,请求发送之前执行!!!发送之前执行!!!请求之前执行!!!</p>
+<h4 id="进阶-—-变量的使用"><a href="#进阶-—-变量的使用" class="headerlink" title="进阶 — 变量的使用"></a><span id="jinjie13">进阶 — 变量的使用</span></h4><p>变量使用直接使用大胡子函数就可以,但是切记不能有空格,会报错<br><img src="https://img.alicdn.com/imgextra/i4/3604278968/O1CN01MoW8B62G7OSPOy3y1_!!3604278968.png" alt="变量的使用"></p>
+<h4 id="进阶-—-使用postman默认的随机数"><a href="#进阶-—-使用postman默认的随机数" class="headerlink" title="进阶 — 使用postman默认的随机数"></a><span id="jinjie21">进阶 — 使用postman默认的随机数</span></h4>: 添加一个V4风格GUID(如： aa002-44ac-45ca-aae3-52bf19650e2d) <br>
+: 将当前的时间戳，精确到秒    <br>
+: 添加0和1000之间的随机整数    <br>
+<h4 id="进阶-—-使用js自己生成随机数"><a href="#进阶-—-使用js自己生成随机数" class="headerlink" title="进阶 — 使用js自己生成随机数"></a><span id="jinjie22">进阶 — 使用js自己生成随机数</span></h4><p><img src="https://img.alicdn.com/imgextra/i2/3604278968/O1CN01b8LX522G7OSQ757Wb_!!3604278968.png" alt="生成随机数"><br>抛砖引玉,如图所示</p>
+<figure class="highlight plain"><figcaption><span>6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const rand = Math.random();</span><br><span class="line">pm.globals.set(&quot;test1&quot;, rand);</span><br></pre></td></tr></table></figure>
+
+<h4 id="进阶-—-随机布尔值-三元表达式"><a href="#进阶-—-随机布尔值-三元表达式" class="headerlink" title="进阶 — 随机布尔值(三元表达式)"></a><span id="jinjie23">进阶 — 随机布尔值(三元表达式)</span></h4><figure class="highlight plain"><figcaption><span>6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const rand = Math.random()/2?true:false;</span><br><span class="line">pm.globals.set(&quot;test1&quot;, rand);</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/自动化测试/">#自动化测试</a> <a href="/tags/postman/">#postman</a> <a href="/tags/api自动化测试/">#api自动化测试</a> <a href="/tags/循环请求接口/">#循环请求接口</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
 </div>
-            
         </section>
+
     </div>
 </div>
+
 
 </div>
 
