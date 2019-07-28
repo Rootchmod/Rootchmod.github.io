@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="使用vuecli搭建apicloud项目">
+        <meta property="og:title" content="RootChmod的技术博客">
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="article">
+        <meta property="og:type" content="website">
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>使用vuecli搭建apicloud项目 - RootChmod的技术博客</title>
+    <title>tsline - RootChmod的技术博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -131,7 +131,9 @@
 <div class="container">
 
     <!-- Main Content -->
-    <div class="row">
+    
+
+<div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -139,78 +141,25 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
+            <h1 id="main-title" class="title">#tsline</h1>
+        
     </div>
 </header>
 
-        <section class="main">
+        <section class="main archive-container">
             
-<div class="post">
-
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/2019/06/19/web/使用vuecli搭建apicloud项目/">
-                使用vuecli搭建apicloud项目
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-06-19</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/web/">web</a>
-                </span>
-            
-        </div>
-    </div>
-
-    <div class="content">
-
-        <!-- Gallery -->
-        
-
-        <!-- Post Content -->
-        <blockquote>
-<p>本次教大家如何使用vue-cli3完美编写apicloud项目，个人也有些问题没解决，但是终归是没报错而且能运行的，<br>我之前也在网上找了好多，但是他们的回答完全一样，对完全，一模一样，这让我也对国内的人很鄙视</p>
-</blockquote>
-<p>首先我使用的vue-cli3 + typescript 的项目，<br>项目难度只增不减</p>
-<p>首先搭建项目  按照一个正常的vue-cli3项目来搭建就行了</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create proj</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.alicdn.com/imgextra/i4/3604278968/O1CN01GveyCF2G7OSH5rjGp_!!3604278968.png" alt="项目目录"></p>
-<p>之后是要使用到官方的api接口,每次在新建apicloud项目的时候会有个script文件夹,里面有个api.js文件</p>
-<p><img src="https://img.alicdn.com/imgextra/i1/3604278968/O1CN01kY5H8K2G7OSOPSy8A_!!3604278968.png" alt="api.js文件"></p>
-<p>把这个文件复制到自己的cli项目中</p>
-<p><img src="https://img.alicdn.com/imgextra/i3/3604278968/O1CN014zDdfi2G7OSNUsysm_!!3604278968.png" alt="项目文件夹"></p>
-<p>使用:在import完了之后引入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require(&apos;@/assets/js/api.js&apos;);</span><br></pre></td></tr></table></figure>
-
-<p>之后的调用直接使用$api就好了</p>
-<p>另外有些地方需要使用api(非$api),我看了一下,apicloud是把这个对象封装到全局里面了,意思就是:只要是使用apicloud运行,<br>api这个对象都是能调用到的,就相当于浏览器的window对象,api这个对象是和window对象同级的,所以你使用window.api是调用<br>不到的</p>
-<p>这样整合就完成了,但是 会有些地方报错,我的解决方法就是:不解决,编译器报错不影响运行,且运行中不会报错</p>
-<p>api会报错/$api会报错/esline会报相关错误/在编译打包的时候也会报找不到之类的相关错误(这里需要注意,只要是成功生成了dist文件<br>,相关的打包报错都不要理会,不会影响项目正常运行的,js也不会在运行时报错)</p>
-
-    </div>
-
-    
-
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/apicloud/">#apicloud</a> <a href="/tags/web/">#web</a> <a href="/tags/vue-cli3/">#vue-cli3</a> <a href="/tags/typescript/">#typescript</a>
-        </div>
-    
-
-    <!-- Comments -->
-    
-
+                <div class="archive-post">
+    <a href="/2019/07/29/tools/怎样关闭tsline检验/">
+        <span class="archive-date">
+            Jul 2019
+        </span>
+        怎样关闭tsline检验
+    </a>
 </div>
+            
         </section>
-
     </div>
 </div>
-
 
 </div>
 
